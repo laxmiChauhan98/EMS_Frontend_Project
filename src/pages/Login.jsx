@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login(){
 
@@ -46,9 +46,11 @@ return(
 <div className="form-box">
 
 <h2>Login</h2>
+
 <p style={{marginTop:"10px"}}>
-Forgot Password? <a href="/forgot">Reset Here</a>
+Forgot Password? <Link to="/forgot">Reset Here</Link>
 </p>
+
 <input
 placeholder="Email"
 onChange={(e)=>setEmail(e.target.value)}
