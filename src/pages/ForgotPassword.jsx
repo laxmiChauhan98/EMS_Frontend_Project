@@ -10,32 +10,20 @@ const resetPassword = async () => {
 
 try{
 
-// get employees
-const res = await axios.get(
-"https://ems-backend-project-sbkg.onrender.com/api/employees"
-);
-
-const user = res.data.find(emp => emp.email === email);
-
-if(user){
-
 await axios.put(
-`https://ems-backend-project-sbkg.onrender.com/api/employees/${user._id}`,
+"https://ems-backend-project-sbkg.onrender.com/api/employees/reset-password",
 {
-password:newPassword
+email: email,
+password: newPassword
 }
 );
 
 alert("Password Updated Successfully");
 
-}else{
+}catch(error){
 
 alert("Email not found");
 
-}
-
-}catch(error){
-console.log(error);
 }
 
 };
