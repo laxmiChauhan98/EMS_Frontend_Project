@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 function Login(){
 
-const navigate = useNavigate();
+const navigate = useNavigate(); //Redirect somewhere after login
 
 const [email,setEmail] = useState("");
 const [password,setPassword] = useState("");
