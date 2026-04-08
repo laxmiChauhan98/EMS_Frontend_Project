@@ -7,18 +7,45 @@ function Employees() {
   const [employees, setEmployees] = useState([]);
 
   // Fetch employees from backend
-  const fetchEmployees = async () => {
-    try {
-      const res = await axios.get(
-        "https://ems-backend-project-sbkg.onrender.com/api/employees"
-      );
-      setEmployees(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchEmployees = async () => {
+  //   try {
+  //     const res = await axios.get(
+  //       "https://ems-backend-project-sbkg.onrender.com/api/employees"
+  //     );
+  //     setEmployees(res.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   fetchEmployees();
+  // }, []);
+
+  //fetch employees with token
+  const fetchEmployees = async () => {
+
+  try {
+
+    const token = localStorage.getItem("token");
+
+    const res = await axios.get(
+      "https://ems-backend-project-sbkg.onrender.com/api/employees",
+      {
+        headers:{
+          Authorization:`Bearer ${token}`
+        }
+      }
+    );
+
+    setEmployees(res.data);
+
+  } catch (error) {
+    console.log(error);
+  }
+
+};
+ useEffect(() => {
     fetchEmployees();
   }, []);
 
