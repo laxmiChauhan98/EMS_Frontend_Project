@@ -55,7 +55,7 @@ password: password
 if(res.data){
 
 localStorage.setItem("token", res.data.token);
-
+console.log("Token saved:", res.data.token);
 alert("Login Successful");
 
 navigate("/employees");
